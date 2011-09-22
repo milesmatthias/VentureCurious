@@ -1,0 +1,50 @@
+!!! 5
+html
+ head
+    title= title
+    meta(name="HandheldFriendly",content="True")
+    meta(name="MobileOptimized",content="320")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='apple-touch-icon', type="image/png", href='/images/icon.png')
+    style
+        @font-face{
+        font-family:"Essays 1743";
+        src:url('/fonts/essays1743-webfont.eot');
+        src:local("Essays 1743"),
+            url('/fonts/essays1743-webfont.woff') format('woff'), 
+            url('/fonts/essays1743-webfont.tff') format('truetype');
+        font-weight:normal;
+        font-style:normal;
+        }
+    script(type="text/javascript")
+        var _gaq = _gaq || [];
+         _gaq.push(['_setAccount', 'UA-25383055-1']);
+         _gaq.push(['_trackPageview']);
+
+         (function() {
+           var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+         })();
+
+        (function(doc){
+         var addEvent = 'addEventListener',
+          type = 'gesturestart',
+          qsa = 'querySelectorAll',
+          scales = [1, 1],
+          meta = qsa in doc ? doc[qsa]('meta[name=viewport]') : [];
+
+         function fix() {
+           meta.content = 'width=device-width,minimum-scale=' + scales[0] + ',maximum-scale=' + scales[1];
+           doc.removeEventListener(type, fix, true);
+         }
+
+         if ((meta = meta[meta.length - 1]) && addEvent in doc) {
+           fix();
+           scales = [.25, 1.6];
+           doc[addEvent](type, fix, true);
+         }
+        }(document));
+        
+ body!= body

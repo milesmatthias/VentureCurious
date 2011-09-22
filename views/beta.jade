@@ -1,0 +1,40 @@
+#header
+	a(href="/") 
+		h1.floatLeft VentureCurious
+	p.floatRight 
+		a(href="/") Home
+		| \ // 
+		a(href="/work") Work
+		| \ //
+		a(href="/about") About
+		| \ // &copy; 2011 VentureCurious
+		
+	h3 Tell me about your dream trip...
+
+#content
+form(action="/search",method="post")
+	div
+		input(id="searchBox",type="text",name="keywords",placeholder="Ex: romantic, local food, golf, adventure, awesome shopping")
+
+	div#destDateFields
+		div.destDateField
+			div.destDateLabel
+				b Where are you going?
+			div.destDateValue
+				input(id="dest",type="text",name="dest",placeholder="San Fransisco")
+		div.destDateField
+			div.destDateLabel
+				b When are you leaving?
+			div.destDateValue
+				input(id="depart",type="text",name="depart",placeholder="MM/DD/YYYY")
+		div.destDateField
+			div.destDateLabel
+				b When are you coming back?
+
+			div.destDateValue
+				input(id="return",type="text",name="return",placeholder="MM/DD/YYYY")
+	
+	div
+		input(id="submitButton",type="submit",value="Plan it!")
+
+#footer
