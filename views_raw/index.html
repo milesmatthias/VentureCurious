@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- META -->
+	<title>VentureCurious</title>
+	<meta charset="utf-8" />
+	
+	<!-- CSS -->
+	<link type="text/css" href="../public/stylesheets/main.css" rel="stylesheet" />	
+	
+	<!-- jQuery Library includes -->
+	<script type="text/javascript" src="../public/javascripts/jquery-1.5.1.min.js"></script>
+	
+	<!-- my custom jQuery files -->
+	<script src="../public/javascripts/myJqueryFunctions.js"></script>
+
+	<!-- font-face declaration must be in this file... -->
+	<style>
+		@font-face{
+			font-family:"Essays 1743";
+			src:url('../public/fonts/essays1743-webfont.eot');
+			src:local("Essays 1743"),
+				url('../public/fonts/essays1743-webfont.woff') format('woff'), 
+				url('../public/fonts/essays1743-webfont.tff') format('truetype');
+			font-weight:normal;
+			font-style:normal;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<h1 class="floatLeft">VentureCurious</h1>
+
+		<p class="floatRight">
+			<a href="/about">About</a> // <a href="mailto:miles.g.matthias@lmco.com">&copy; 2011 Miles Matthias</a>
+		</p>
+		
+		<h3>Tell me about your dream trip...</h3>
+	</div>
+	
+	<div id="content">
+		<form action="/search" method="post">
+			<div>
+				<input id="searchBox" type="text" name="keywords" placeholder="Ex: romantic, local food, golf, adventure, awesome shopping" />
+			</div>
+			
+			<div id="destDateFields">
+				<div class="destDateField">
+					<div class="destDateLabel">
+						<b>Where are you going?</b>
+					</div>
+					<div class="destDateValue">
+						<input id="dest" type="text" name="dest" placeholder="San Fransisco" />
+					</div>
+				</div>
+			
+				<div class="destDateField">
+					<div class="destDateLabel">
+						<b>When are you leaving?</b>
+					</div>
+					<div class="destDateValue">
+						<input id="depart" type="text" name="depart" placeholder="MM/DD/YYYY" />
+					</div>
+				</div>
+				
+				<div class="destDateField">
+					<div class="destDateLabel">
+						<b>When are you coming back?</b>
+					</div>
+					<div class="destDateValue">
+						<input id="return" type="text" name="return" placeholder="MM/DD/YYYY" />
+					</div>
+				</div>
+			</div>
+				
+			<div>
+				<input id="submitButton" type="submit" value="Plan it!" />
+			</div>
+		</form>
+	</div>
+	
+	<div id="footer">
+	</div>
+</body>
+</html>

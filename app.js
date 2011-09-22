@@ -49,6 +49,11 @@ app.get('/about', function(req, res){
     title: 'VentureCurious'
   });
 });
+app.get('/beta', function(req, res){
+  res.render('beta', {
+    title: 'VentureCurious'
+  });
+});
 app.get('/work', function(req, res){
   res.render('work', {
     title: 'VentureCurious'
