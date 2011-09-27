@@ -5,7 +5,13 @@
 
 var express = require('express'),
 	app = module.exports = express.createServer(),
-	mongoose = require('mongoose'),
+	yelp = require('yelp').createClient({
+		consumer_key: "7Ik7dpdVGrbMD52sIXKxWw",
+		consumer_secret: "Jl3_O3ht-TExXSYfFpIZb1dfCn8",
+		token: "7Z298ZYsMMnl5VgeZreG2ZKioeFtShAt",
+		token_secret: "EjVgHs_oQiRH8VuHoPACZNcgMrM"
+	});
+/*	mongoose = require('mongoose'),
 	db = mongoose.connect('mongodb://localhost/emails'),
 	Schema = mongoose.Schema,
 	
@@ -15,7 +21,7 @@ var express = require('express'),
 	});
 
 // db stuff
-EmailModel = mongoose.model('Email', Email);
+EmailModel = mongoose.model('Email', Email);*/
 
 
 // Configuration
@@ -51,8 +57,14 @@ app.get('/about', function(req, res){
 });
 app.get('/beta', function(req, res){
   res.render('beta', {
-    title: 'VentureCurious'
+  	title: 'VentureCurious'
   });
+});
+app.post('/betaSearch', function(req, res){
+  yelp.search({term:req.param('keywords'), location:req.param('dest')}, function(error, data) {
+	console.log(error);
+	console.log(data);
+  });	
 });
 app.get('/work', function(req, res){
   res.render('work', {
@@ -61,10 +73,10 @@ app.get('/work', function(req, res){
 });
 app.post('/signedUp', function(req, res){
   if(req.param.length < 2500 ){
-	  var insertEmail = new EmailModel({ email:req.param('email') });
+	  /*var insertEmail = new EmailModel({ email:req.param('email') });
 	  insertEmail.save(function(err){
 		if (err) { console.log(err); }
-	  });
+	  });*/
   }
   res.render('signedUp', {
     title: 'VentureCurious'
