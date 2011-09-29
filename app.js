@@ -61,10 +61,27 @@ app.get('/beta', function(req, res){
   });
 });
 app.post('/betaSearch', function(req, res){
-  yelp.search({term:req.param('keywords'), location:req.param('dest')}, function(error, data) {
-	console.log(error);
-	console.log(data);
-  });	
+	
+  	yelp.search({term:req.param('keywords'), location:req.param('dest')}, function(error, data) {
+		if(error){console.log(error);}
+		
+		// Do algorithm to pick certain amount from each category
+		// and put into a JSON object..
+		// Need to think about how I pass that to the front end calendar...
+		
+		if(data.businesses.length > 0){
+			var listings = "Business #"+0+"<br/>"
+			listings +="================"+"<br/>"
+			listings +=data.businesses[0].name +"<br/><br/>";
+			
+			for(var i=1; i<data.businesses.length; i++){
+				listings += "Business #"+i+"<br/>"
+				listings +="================"+"<br/>"
+				listings +=data.businesses[i].name +"<br/><br/>";
+			}
+			res.send(listings);
+		}
+  	});
 });
 app.get('/work', function(req, res){
   res.render('work', {
