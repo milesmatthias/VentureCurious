@@ -1,0 +1,24 @@
+#header
+	a(href="/") 
+		h1.floatLeft VentureCurious
+	p.floatRight 
+		a(href="/") Home
+		| \ // 
+		a(href="/work") Work
+		| \ //
+		a(href="/about") About
+		| \ // &copy; 2011 VentureCurious
+
+#content
+	h4 Travelers are awesome. They deserve awesome tools.
+	h4 Read about VentureCurious 
+		a(href="/about") here
+		| .
+	h4 Sign up to be an alpha tester below.
+	
+	form(action="/signedUp", method="post")
+		#betaSignUp
+			input(id="betaInput", name="email", type="email", placeholder="email@address.com", required)
+			input(id="betaSubmit", type="submit", value="Sign Up")
+
+#footer
